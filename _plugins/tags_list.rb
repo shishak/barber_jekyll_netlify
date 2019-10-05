@@ -15,11 +15,11 @@ module Jekyll
       end
 
       def render(context)
-        tags = context.registers[:site].tags.map do |tag, posts|
+        tags = context.registers[:site].categories.map do |tag, posts|
           [tag, posts.count] if posts.count >= @threshold
         end
 
-        tags.compact!
+        categories.compact!
 
         tags.sort! do |tag1, tag2|
           sort_seq = 0
@@ -40,7 +40,7 @@ module Jekyll
 
         tag_count = 1
 
-        tags.each do |tag, count|
+        categories.each do |tag, count|
           if tag_count > @limit && @limit != 0
             break
           end
