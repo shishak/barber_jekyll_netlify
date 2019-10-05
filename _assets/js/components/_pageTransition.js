@@ -16,8 +16,8 @@ const PageTransition = (() => {
         transitionLinks: $(`a[href^="http://${top.location.host.toString()}"], a[href^="/"], a[href^="./"], a[href^="../"]`).not(`.${noTransition}`),
         body: $('body'),
         window: $(window),
-        exit: 400,
-        entrance: 200
+        exit: 200,
+        entrance: 100
       };
     },
 
@@ -28,7 +28,7 @@ const PageTransition = (() => {
       } else {
         setTimeout(() => {
           $('body').addClass('js-page-loaded');
-        }, 600);
+        }, 200);
       }
     },
 
